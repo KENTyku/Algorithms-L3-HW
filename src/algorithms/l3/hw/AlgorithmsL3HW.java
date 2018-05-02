@@ -8,12 +8,13 @@ import java.util.Random;
 
 /**
  *
- * @author kentyku
+ * @author Yuri Tveritin
  */
 public class AlgorithmsL3HW {
     
     public static void main(String[] args) {
-       createArray(100);
+       ex5(createArray(20));
+       
     
     }
     
@@ -27,19 +28,37 @@ public class AlgorithmsL3HW {
      * заполнением 
      * @param n 
      */
-    static void createArray(int n){
-        Integer[] ar;
-        ar=new Integer[n];
+    static int[] createArray(int n){
+        int[] ar;
+        ar=new int[n];
         Random rand=new Random ();
         for (int i = 0; i < n; i++) {
             ar[i]=rand.nextInt(n);
             System.out.print(ar[i]+" ");
             
         }
+        return ar;
     }
     
-    static void ex5(Integer[] array){
-        
+    static void ex5(int[] array){
+        for (int i = 0; i < array.length; i++) {
+            int temp =array[i];
+            int j=i;
+            while(j>0){ 
+                if (temp<array[j-1]){
+                    array[j]=array[j-1];
+                    array[j-1]=temp;
+                }                
+                j--;
+            }
+        }
+        System.out.println();
+        for (int k = 0; k < array.length; k++) {
+            System.out.print(array[k]+ " ");
+            
+        }
     }
+    
+    
     
 }
